@@ -23,7 +23,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.login=squ_811a33edc342c9ca335d62e5061a5d1027634833 -Dsonar.token=squ_811a33edc342c9ca335d62e5061a5d1027634833'
+                    bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.token=squ_811d6356979e597f6962adaa47bc552b6a5a1733'
                 }
             }
         }
