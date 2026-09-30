@@ -13,10 +13,17 @@ pipeline {
             }
         }
 
+        stage('Build Project') {
+            steps {
+                echo 'Building project...'
+                bat 'mvn clean package -DskipTests'
+            }
+        }
+
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    bat 'mvn sonar:sonar -Dsonar.login=squ_811a33edc342c9ca335d62e5061a5d1027634833'
+                    bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
                 }
             }
         }
