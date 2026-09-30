@@ -13,13 +13,6 @@ pipeline {
             }
         }
 
-        stage('Build Project') {
-            steps {
-                echo 'Building Java application...'
-                bat 'mvn clean package -DskipTests -Dmaven.test.failure.ignore=true'
-            }
-        }
-
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
